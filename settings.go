@@ -24,7 +24,7 @@ func newSettings(db *gorm.DB) SettingsStorageInterface {
 // QorAdminSetting admin settings
 type QorAdminSetting struct {
 	gorm.Model
-	Key      string
+	Key      string `gorm:"column:admin_key"`
 	Resource string
 	UserID   string
 	Value    string `gorm:"size:65532"`
