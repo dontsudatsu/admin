@@ -16,7 +16,9 @@ type SettingsStorageInterface interface {
 
 func newSettings(db *gorm.DB) SettingsStorageInterface {
 	if db != nil {
-		db.AutoMigrate(&QorAdminSetting{})
+		if db.HasTable(&QorAdminSetting{}) == false{
+			db.AutoMigrate(&QorAdminSetting{})
+		}
 	}
 	return settings{}
 }
