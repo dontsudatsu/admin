@@ -32,6 +32,10 @@ type QorAdminSetting struct {
 	Value    string `gorm:"size:65532"`
 }
 
+func (q *QorAdminSetting) TableName() string {
+	return "qor_admin_settings"
+}
+
 type settings struct{}
 
 // Get load admin settings
